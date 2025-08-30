@@ -1,14 +1,22 @@
 workflows:
   ios-workflow:
-    name: iOS Build & TestFlight
+    name: iOS Build
     environment:
-      flutter: stable
       xcode: latest
+      vars:
+        CERTIFICATE_REFERENCE: ios_distribution_cert
+        PROVISIONING_PROFILE_REFERENCE: ios_profile_2
     scripts:
-      - name: Get Flutter dependencies
-        script: flutter pub get
+      - name: Set up code signing
+        script: |
+          keychain initialize
+          app-store-connect fetch-signing-files \
+            com.shopidubai.app \
+            --certificate $CERTIFICATE_REFERENCE \
+            --profile $PROVISIONING_PROFILE_REFERENCE
       - name: Build iOS
-        script: flutter build ios --release --no-codesign
+        script: |
+          flutter build ipa --release --no-codesign
     artifacts:
-      - build/ios/iphoneos/*.ipa
       - build/ios/ipa/*.ipa
+
