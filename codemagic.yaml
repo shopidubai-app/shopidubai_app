@@ -1,6 +1,9 @@
 workflows:
   ios-workflow:
     name: iOS Build
+    integrations:
+      app_store_connect: ShopiDubai key   # 👈 must match exactly the name of your API key in Codemagic
+
     environment:
       vars:
         APP_NAME: "shopidubai_app"
@@ -17,6 +20,5 @@ workflows:
 
     publishing:
       app_store_connect:
-        auth: integration   # uses the API key from Codemagic Developer Portal integration
-        submit_to_testflight: true
+        submit_to_testflight: false
         submit_to_app_store: false
