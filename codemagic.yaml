@@ -2,7 +2,7 @@ workflows:
   ios-workflow:
     name: iOS Build
     integrations:
-      app_store_connect: ShopiDubai key   # 👈 must match exactly the name of your API key in Codemagic
+      app_store_connect: api.key
 
     environment:
       vars:
