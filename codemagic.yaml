@@ -5,9 +5,6 @@ workflows:
       vars:
         APP_NAME: "shopidubai_app"
         BUNDLE_ID: "com.shopidubai.app"
-      groups:
-        - ios_cer_5
-        - com.shopidubai.app
 
     scripts:
       - name: Build iOS
@@ -20,5 +17,6 @@ workflows:
 
     publishing:
       app_store_connect:
-        submit_to_testflight: false
+        auth: integration   # uses the API key from Codemagic Developer Portal integration
+        submit_to_testflight: true
         submit_to_app_store: false
