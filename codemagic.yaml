@@ -3,7 +3,7 @@ workflows:
     name: iOS Build
     integrations:
       app_store_connect: appstoreapikey
-    
+
     environment:
       vars:
         APP_NAME: "shopidubai_app"
