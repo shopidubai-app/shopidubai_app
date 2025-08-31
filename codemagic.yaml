@@ -18,6 +18,6 @@ workflows:
     publishing:
       app_store_connect:
         auth: integration
-        key_id: M2DLCXJP5JZY
+        key_id: M2DLCXJP5JZ
         issuer_id: 8965d0c4-e286-4d68-9a6c-cd6a7dcf12d1
         api_key: appstoreapikey
