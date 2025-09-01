@@ -5,7 +5,7 @@ workflows:
       app_store_connect: appstoreapikey
 
     environment:
-      flutter: 3.35.1
+      flutter: stable
       vars:
         APP_NAME: "shopidubai_app"
         BUNDLE_ID: "com.shopidubai.app"
