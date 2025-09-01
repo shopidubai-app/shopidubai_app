@@ -3,7 +3,9 @@ workflows:
     name: iOS Build
     integrations:
       app_store_connect: appstoreapikey
+
     environment:
+      flutter: 3.35.1
       vars:
         APP_NAME: "shopidubai_app"
         BUNDLE_ID: "com.shopidubai.app"
@@ -11,6 +13,8 @@ workflows:
     scripts:
       - name: Build iOS
         script: |
+          flutter clean
+          flutter pub get
           flutter build ipa --release
 
     artifacts:
@@ -20,3 +24,4 @@ workflows:
     publishing:
       app_store_connect:
         auth: integration
+        api_key: appstoreapikey
