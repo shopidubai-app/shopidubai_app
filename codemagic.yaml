@@ -1,6 +1,9 @@
 workflows:
   ios-workflow:
     name: iOS Build
+    integrations:
+      app_store_connect: integration
+
     environment:
       vars:
         APP_NAME: "shopidubai_app"
@@ -18,6 +21,5 @@ workflows:
     publishing:
       app_store_connect:
         auth: integration
-        key_id: M2DLCXJP5JZ
-        issuer_id: 8965d0c4-e286-4d68-9a6c-cd6a7dcf12d1
-        api_key: appstoreapikey
+        submit_to_testflight: false
+        submit_to_app_store: false
