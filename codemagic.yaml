@@ -2,10 +2,9 @@ workflows:
   ios-workflow:
     name: iOS Build
     integrations:
-      app_store_connect: appstoreapikey
+      app_store_connect: appstoreapikey   # <- must match EXACT integration name in Codemagic
 
     environment:
-      flutter: stable
       vars:
         APP_NAME: "shopidubai_app"
         BUNDLE_ID: "com.shopidubai.app"
@@ -13,8 +12,6 @@ workflows:
     scripts:
       - name: Build iOS
         script: |
-          flutter clean
-          flutter pub get
           flutter build ipa --release
 
     artifacts:
@@ -23,5 +20,5 @@ workflows:
 
     publishing:
       app_store_connect:
-        auth: integration
-        api_key: appstoreapikey
+        submit_to_testflight: true
+        submit_to_app_store: false
